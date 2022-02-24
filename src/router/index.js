@@ -1,31 +1,30 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Dashboard from "@/views/Dashboard.vue";
-import Tables from "@/views/Tables.vue";
-import Billing from "@/views/Billing.vue";
+import RoundAndInfo from "@/views/RoundAndInfo.vue";
+import VentureCapitals from "@/views/VentureCapitals.vue";
+import Projects from "@/views/Projects.vue";
 import Profile from "@/views/Profile.vue";
 import SignIn from "@/views/SignIn.vue";
-import SignUp from "@/views/SignUp.vue";
 
 const routes = [
   {
     path: "/",
     name: "/",
-    redirect: "/dashboard",
+    redirect: "/round-and-info",
   },
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: Dashboard,
+    path: "/round-and-info",
+    name: "RoundAndInfo",
+    component: RoundAndInfo,
   },
   {
-    path: "/tables",
-    name: "Tables",
-    component: Tables,
+    path: "/venture-capitals",
+    name: "Venture Capitals",
+    component: VentureCapitals,
   },
   {
-    path: "/billing",
-    name: "Billing",
-    component: Billing,
+    path: "/projects",
+    name: "Projects",
+    component: Projects,
   },
   {
     path: "/profile",
@@ -36,11 +35,6 @@ const routes = [
     path: "/sign-in",
     name: "Sign In",
     component: SignIn,
-  },
-  {
-    path: "/sign-up",
-    name: "Sign Up",
-    component: SignUp,
   },
 ];
 

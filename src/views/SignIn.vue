@@ -1,15 +1,4 @@
 <template>
-  <div class="container top-0 position-sticky z-index-sticky">
-    <div class="row">
-      <div class="col-12">
-        <navbar
-          isBlur="blur blur-rounded my-3 py-2 start-0 end-0 mx-4 shadow"
-          btnBackground="bg-gradient-success"
-          v-bind:darkMode="true"
-        />
-      </div>
-    </div>
-  </div>
   <main class="mt-0 main-content main-content-bg">
     <section>
       <div class="page-header min-vh-75">
@@ -73,12 +62,9 @@
       </div>
     </section>
   </main>
-  <app-footer />
 </template>
 
 <script>
-import Navbar from "@/examples/PageLayout/Navbar.vue";
-import AppFooter from "@/examples/PageLayout/Footer.vue";
 import VsudInput from "@/components/VsudInput.vue";
 import VsudSwitch from "@/components/VsudSwitch.vue";
 import VsudButton from "@/components/VsudButton.vue";
@@ -87,8 +73,6 @@ const body = document.getElementsByTagName("body")[0];
 export default {
   name: "signin",
   components: {
-    Navbar,
-    AppFooter,
     VsudInput,
     VsudSwitch,
     VsudButton,

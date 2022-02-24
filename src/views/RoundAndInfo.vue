@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="my-4">
-      <div class="col-lg-11 col-md-6 mb-md-0 mb-4">
+      <div class="col-lg-12 col-md-6 mb-md-0 mb-4 z-index-2">
         <projects-card />
       </div>
     </div>
@@ -29,7 +29,7 @@ import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
 import ProjectsCard from "./components/ProjectsCard.vue";
 
 export default {
-  name: "dashboard-default",
+  name: "round-and-info",
   components: {
     ActiveUsersChart,
     GradientLineChart,

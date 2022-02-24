@@ -12,7 +12,7 @@
 import AuthorsTable from "./components/AuthorsTable";
 
 export default {
-  name: "tables",
+  name: "venture-capitals",
   components: {
     AuthorsTable,
   },

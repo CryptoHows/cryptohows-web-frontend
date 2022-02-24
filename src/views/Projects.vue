@@ -12,7 +12,7 @@
 import ProjectsTable from "./components/ProjectsTable";
 
 export default {
-  name: "Billing",
+  name: "Projects",
   components: {
     ProjectsTable,
   },

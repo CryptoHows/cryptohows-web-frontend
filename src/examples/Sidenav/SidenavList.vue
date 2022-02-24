@@ -12,21 +12,27 @@
         </h6>
       </li>
       <li class="nav-item">
-        <sidenav-collapse navText="Dashboard" :to="{ name: 'Dashboard' }">
+        <sidenav-collapse
+          navText="Round And Info"
+          :to="{ name: 'RoundAndInfo' }"
+        >
           <template v-slot:icon>
             <icon name="dashboard" />
           </template>
         </sidenav-collapse>
       </li>
       <li class="nav-item">
-        <sidenav-collapse navText="Tables" :to="{ name: 'Tables' }">
+        <sidenav-collapse
+          navText="Venture Capitals"
+          :to="{ name: 'Venture Capitals' }"
+        >
           <template v-slot:icon>
             <icon name="tables" />
           </template>
         </sidenav-collapse>
       </li>
       <li class="nav-item">
-        <sidenav-collapse navText="Billing" :to="{ name: 'Billing' }">
+        <sidenav-collapse navText="Projects" :to="{ name: 'Projects' }">
           <template v-slot:icon>
             <icon name="billing" />
           </template>
