@@ -16,16 +16,19 @@
     </div>
     <hr class="mt-0 horizontal dark" />
     <sidenav-list :cardBg="custom_class" />
+    <channel />
   </aside>
 </template>
 <script>
 import SidenavList from "./SidenavList.vue";
+import Channel from "./Channel.vue";
 import logo from "@/assets/img/logo-ct.png";
 
 export default {
   name: "index",
   components: {
     SidenavList,
+    Channel,
   },
   data() {
     return {

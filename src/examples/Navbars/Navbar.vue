@@ -24,16 +24,6 @@
           </div>
         </div>
         <ul class="navbar-nav justify-content-end">
-          <li class="nav-item d-flex align-items-center">
-            <router-link
-              :to="{ name: 'Sign In' }"
-              class="px-0 nav-link font-weight-bold"
-              :class="textWhite ? textWhite : 'text-body'"
-            >
-              <i class="fa fa-user 'me-sm-1"></i>
-              <span class="d-sm-inline d-none ms-2">Sign In</span>
-            </router-link>
-          </li>
           <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
             <a
               href="#"

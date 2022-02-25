@@ -12,10 +12,7 @@
         </h6>
       </li>
       <li class="nav-item">
-        <sidenav-collapse
-          navText="Round And Info"
-          :to="{ name: 'RoundAndInfo' }"
-        >
+        <sidenav-collapse navText="Round" :to="{ name: 'Round' }">
           <template v-slot:icon>
             <icon name="dashboard" />
           </template>
@@ -35,21 +32,6 @@
         <sidenav-collapse navText="Projects" :to="{ name: 'Projects' }">
           <template v-slot:icon>
             <icon name="billing" />
-          </template>
-        </sidenav-collapse>
-      </li>
-
-      <li class="mt-3 nav-item">
-        <h6
-          class="text-xs ps-4 text-uppercase font-weight-bolder opacity-6 ms-2"
-        >
-          PAGES
-        </h6>
-      </li>
-      <li class="nav-item">
-        <sidenav-collapse navText="Profile" :to="{ name: 'Profile' }">
-          <template v-slot:icon>
-            <icon name="customer-support" />
           </template>
         </sidenav-collapse>
       </li>
