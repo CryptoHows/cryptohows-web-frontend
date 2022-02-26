@@ -19,11 +19,9 @@
     <td>
       <p class="text-xs font-weight-bold mb-0">{{ about }}</p>
     </td>
-    <td class="align-middle text-center text-sm">
-      <a :href="homepage" target="_blank">
-        <vsud-badge color="success" variant="gradient" size="sm"
-          >바로가기</vsud-badge
-        >
+    <td class="text-xs font-weight-bold mb-0 homepage-link">
+      <a :href="homepage" target="_blank" v-if="homepage">
+        <i class="fas fa-solid fa-link text-lg me-1"></i> link
       </a>
     </td>
   </tr>
@@ -31,13 +29,11 @@
 
 <script>
 import VsudAvatar from "@/components/VsudAvatar.vue";
-import VsudBadge from "@/components/VsudBadge.vue";
 
 export default {
   name: "venture-capital-item",
   components: {
     VsudAvatar,
-    VsudBadge,
   },
   props: {
     ventureCapital: Object,

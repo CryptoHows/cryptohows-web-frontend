@@ -12,26 +12,26 @@
         </h6>
       </li>
       <li class="nav-item">
-        <sidenav-collapse navText="Round" :to="{ name: 'Round' }">
+        <sidenav-collapse navText="투자 라운드" :to="{ name: 'Round' }">
           <template v-slot:icon>
-            <icon name="dashboard" />
+            <icon name="foundation" />
+          </template>
+        </sidenav-collapse>
+      </li>
+      <li class="nav-item">
+        <sidenav-collapse navText="프로젝트" :to="{ name: 'Projects' }">
+          <template v-slot:icon>
+            <icon name="spaceship" />
           </template>
         </sidenav-collapse>
       </li>
       <li class="nav-item">
         <sidenav-collapse
-          navText="Venture Capitals"
+          navText="벤처 캐피탈"
           :to="{ name: 'Venture Capitals' }"
         >
           <template v-slot:icon>
-            <icon name="tables" />
-          </template>
-        </sidenav-collapse>
-      </li>
-      <li class="nav-item">
-        <sidenav-collapse navText="Projects" :to="{ name: 'Projects' }">
-          <template v-slot:icon>
-            <icon name="billing" />
+            <icon name="office" />
           </template>
         </sidenav-collapse>
       </li>

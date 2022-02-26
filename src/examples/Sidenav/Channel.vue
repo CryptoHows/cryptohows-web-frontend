@@ -34,7 +34,7 @@ export default {
 }
 
 .channel-item > a:hover {
-  color: #82d616;
+  color: #82d616 !important;
 }
 
 .channel-icon {
