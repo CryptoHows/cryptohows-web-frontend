@@ -65,7 +65,6 @@ export default {
 
     onMounted(() => {
       getVentureCapitals();
-      console.log(allVentureCapitals);
     });
 
     return { allVentureCapitals };
