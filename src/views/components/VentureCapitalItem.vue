@@ -4,7 +4,7 @@
       <div class="d-flex px-2 py-1">
         <div>
           <vsud-avatar
-            :img="img1"
+            :img="logo"
             size="sm"
             border-radius="lg"
             class="me-3"
@@ -12,35 +12,43 @@
           />
         </div>
         <div class="d-flex flex-column justify-content-center">
-          <h6 class="mb-0 text-sm">John Michael</h6>
-          <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+          <h6 class="mb-0 text-sm">{{ name }}</h6>
         </div>
       </div>
     </td>
     <td>
-      <p class="text-xs font-weight-bold mb-0">Manager</p>
-      <p class="text-xs text-secondary mb-0">Organization</p>
+      <p class="text-xs font-weight-bold mb-0">{{ about }}</p>
     </td>
     <td class="align-middle text-center text-sm">
-      <vsud-badge color="success" variant="gradient" size="sm"
-        >Online</vsud-badge
-      >
-    </td>
-    <td class="align-middle text-center">
-      <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-    </td>
-    <td class="align-middle">
-      <a
-        href="javascript:;"
-        class="text-secondary font-weight-bold text-xs"
-        data-toggle="tooltip"
-        data-original-title="Edit user"
-        >Edit</a
-      >
+      <a :href="homepage" target="_blank">
+        <vsud-badge color="success" variant="gradient" size="sm"
+          >바로가기</vsud-badge
+        >
+      </a>
     </td>
   </tr>
 </template>
 
 <script>
-export default {};
+import VsudAvatar from "@/components/VsudAvatar.vue";
+import VsudBadge from "@/components/VsudBadge.vue";
+
+export default {
+  name: "venture-capital-item",
+  components: {
+    VsudAvatar,
+    VsudBadge,
+  },
+  props: {
+    ventureCapital: Object,
+  },
+  data() {
+    return {
+      name: this.ventureCapital.name,
+      about: this.ventureCapital.about,
+      homepage: this.ventureCapital.homepage,
+      logo: this.ventureCapital.logo,
+    };
+  },
+};
 </script>
