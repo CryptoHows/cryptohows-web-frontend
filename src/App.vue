@@ -45,3 +45,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.homepage-link > a:hover {
+  color: #82d616 !important;
+}
+</style>

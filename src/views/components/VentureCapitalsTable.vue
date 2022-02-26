@@ -1,40 +1,36 @@
 <template>
   <div class="card mb-4">
     <div class="card-header pb-0">
-      <h6>프로젝트</h6>
+      <h6>벤처 캐피탈</h6>
     </div>
-    <div class="card-body px-0 pt-2 pb-2">
+    <div class="card-body px-0 pt-1 pb-2">
       <div class="table-responsive p-0">
-        <table class="table align-items-center justify-content-center mb-0">
+        <table class="table align-items-center mb-0">
           <thead>
             <tr>
               <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
               >
-                프로젝트명
+                회사명
               </th>
               <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
               >
-                프로젝트 소개
+                회사 소개
               </th>
               <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
               >
-                투자사
+                웹페이지
               </th>
-              <th
-                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-              >
-                투자 라운드
-              </th>
+              <th class="text-secondary opacity-7"></th>
             </tr>
           </thead>
           <tbody>
-            <project-item
-              v-for="project in allProjects"
-              :key="project"
-              :project="project"
+            <venture-capital-item
+              v-for="ventureCapital in allVentureCapitals"
+              :key="ventureCapital"
+              :ventureCapital="ventureCapital"
             />
           </tbody>
         </table>
@@ -44,34 +40,34 @@
 </template>
 
 <script>
-import ProjectItem from "./ProjectItem.vue";
+import VentureCapitalItem from "./VentureCapitalItem.vue";
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
 export default {
-  name: "projects-table",
+  name: "venture-capitals-table",
   components: {
-    ProjectItem,
+    VentureCapitalItem,
   },
   setup() {
-    let allProjects = ref([]);
-    // let allProjectsOriginal = ref([]);
+    let allVentureCapitals = ref([]);
+    // let allVentureCapitalsOriginal = ref([]);
 
-    function getProjects() {
+    function getVentureCapitals() {
       axios
-        .get("https://cryptohows.herokuapp.com/projects")
+        .get("https://cryptohows.herokuapp.com/venture-capitals")
         .then((response) => {
-          allProjects.value = response.data;
-          // allProjectsOriginal = [...response.data];
+          allVentureCapitals.value = response.data;
+          // allVentureCapitalsOriginal = [...response.data];
         })
         .catch((response) => alert(response));
     }
 
     onMounted(() => {
-      getProjects();
+      getVentureCapitals();
     });
 
-    return { allProjects };
+    return { allVentureCapitals };
   },
 };
 </script>

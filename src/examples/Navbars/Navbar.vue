@@ -6,7 +6,6 @@
     data-scroll="true"
   >
     <div class="px-3 py-1 container-fluid">
-      <breadcrumbs :currentPage="currentRouteName" :textWhite="textWhite" />
       <div
         class="mt-2 collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4"
         id="navbar"
@@ -24,16 +23,6 @@
           </div>
         </div>
         <ul class="navbar-nav justify-content-end">
-          <li class="nav-item d-flex align-items-center">
-            <router-link
-              :to="{ name: 'Sign In' }"
-              class="px-0 nav-link font-weight-bold"
-              :class="textWhite ? textWhite : 'text-body'"
-            >
-              <i class="fa fa-user 'me-sm-1"></i>
-              <span class="d-sm-inline d-none ms-2">Sign In</span>
-            </router-link>
-          </li>
           <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
             <a
               href="#"
@@ -54,7 +43,6 @@
   </nav>
 </template>
 <script>
-import Breadcrumbs from "../Breadcrumbs.vue";
 import { mapMutations, mapActions } from "vuex";
 
 export default {
@@ -76,9 +64,6 @@ export default {
       this.toggleSidebarColor("bg-white");
       this.navbarMinimize();
     },
-  },
-  components: {
-    Breadcrumbs,
   },
   computed: {
     currentRouteName() {

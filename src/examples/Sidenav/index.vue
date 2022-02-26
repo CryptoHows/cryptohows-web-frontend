@@ -11,21 +11,24 @@
       ></i>
       <a class="m-0 navbar-brand" href="/">
         <img :src="logo" class="navbar-brand-img h-100" alt="main_logo" />
-        <span class="ms-2 font-weight-bold">크립토하우스</span>
+        <span class="ms-3 font-weight-bold">CryptoHows</span>
       </a>
     </div>
     <hr class="mt-0 horizontal dark" />
     <sidenav-list :cardBg="custom_class" />
+    <channel />
   </aside>
 </template>
 <script>
 import SidenavList from "./SidenavList.vue";
-import logo from "@/assets/img/logo-ct.png";
+import Channel from "./Channel.vue";
+import logo from "@/assets/img/logo-ch.png";
 
 export default {
   name: "index",
   components: {
     SidenavList,
+    Channel,
   },
   data() {
     return {
