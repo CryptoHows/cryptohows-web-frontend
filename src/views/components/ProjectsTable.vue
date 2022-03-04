@@ -41,37 +41,98 @@
       </div>
     </div>
   </div>
+  <vsud-pagination color="success">
+    <vsud-pagination-item
+      v-for="pageNumber in totalPageRequired"
+      :key="pageNumber"
+      :label="pageNumber"
+      :id="'page' + pageNumber"
+      @click="getProjectsByPage(pageNumber), displayActivePage(pageNumber)"
+    />
+  </vsud-pagination>
 </template>
 
 <script>
 import ProjectItem from "./ProjectItem.vue";
+import VsudPagination from "../../components/VsudPagination.vue";
+import VsudPaginationItem from "../../components/VsudPaginationItem.vue";
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import createStore from "../../store/index.js";
 
 export default {
   name: "projects-table",
   components: {
     ProjectItem,
+    VsudPagination,
+    VsudPaginationItem,
   },
   setup() {
-    let allProjects = ref([]);
-    // let allProjectsOriginal = ref([]);
+    var allProjects = ref([]);
+    var currentPageNumber = ref(1);
+    var totalProjectCount = 0;
+    var totalPageRequired = ref(1);
+    var projectPerPage = 10;
 
-    function getProjects() {
+    function getProjectsByPage(pageNumber) {
       axios
-        .get("https://cryptohows.herokuapp.com/projects")
+        .get(
+          createStore.state.backendUrl +
+            "/projects?page=" +
+            String(pageNumber - 1) +
+            "&projectsPerPage=" +
+            String(projectPerPage)
+        )
         .then((response) => {
           allProjects.value = response.data;
-          // allProjectsOriginal = [...response.data];
         })
         .catch((response) => alert(response));
     }
 
+    function getProjectsCount() {
+      axios
+        .get(createStore.state.backendUrl + "/projects/count")
+        .then((response) => {
+          return response.data.projects;
+        })
+        .then((projectCount) => calculateTotalPageRequired(projectCount))
+        .catch((response) => alert(response));
+    }
+
+    function calculateTotalPageRequired(projectCount) {
+      totalProjectCount = parseInt(projectCount);
+      if (totalProjectCount % projectPerPage == 0) {
+        totalPageRequired.value = parseInt(totalProjectCount / projectPerPage);
+      } else {
+        totalPageRequired.value =
+          parseInt(totalProjectCount / projectPerPage) + 1;
+      }
+    }
+
+    function displayActivePage(pageNumber) {
+      var pageToggleBefore = document.getElementById(
+        "page" + String(currentPageNumber.value)
+      );
+      pageToggleBefore.classList.remove("active");
+
+      var pageToggle = document.getElementById("page" + String(pageNumber));
+      pageToggle.classList.add("active");
+      currentPageNumber.value = pageNumber;
+    }
+
     onMounted(() => {
-      getProjects();
+      getProjectsCount();
+      getProjectsByPage(1);
+      displayActivePage(1);
     });
 
-    return { allProjects };
+    return {
+      allProjects,
+      getProjectsByPage,
+      displayActivePage,
+      currentPageNumber,
+      totalPageRequired,
+    };
   },
 };
 </script>

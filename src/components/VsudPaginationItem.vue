@@ -12,7 +12,7 @@
 export default {
   name: "vsud-pagination-item",
   props: {
-    label: String,
+    label: Number,
     active: {
       type: Boolean,
       default: false,

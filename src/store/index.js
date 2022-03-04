@@ -12,6 +12,7 @@ export default createStore({
     showSidenav: true,
     showNavbar: true,
     showMain: true,
+    backendUrl: "https://api.cryptohows.xyz",
   },
   mutations: {
     navbarMinimize(state) {
