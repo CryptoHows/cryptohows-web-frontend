@@ -100,7 +100,6 @@ export default {
     }
 
     function calculateTotalPageRequired(projectCount) {
-      console.log(projectCount);
       totalProjectCount = parseInt(projectCount);
       if (totalProjectCount % projectPerPage == 0) {
         totalPageRequired.value = parseInt(totalProjectCount / projectPerPage);
