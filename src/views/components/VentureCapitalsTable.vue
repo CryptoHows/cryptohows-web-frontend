@@ -43,6 +43,7 @@
 import VentureCapitalItem from "./VentureCapitalItem.vue";
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import createStore from "../../store/index.js";
 
 export default {
   name: "venture-capitals-table",
@@ -55,7 +56,7 @@ export default {
 
     function getVentureCapitals() {
       axios
-        .get("https://cryptohows.herokuapp.com/venture-capitals")
+        .get(createStore.state.backendUrl + "/venture-capitals")
         .then((response) => {
           allVentureCapitals.value = response.data;
           // allVentureCapitalsOriginal = [...response.data];

@@ -57,6 +57,7 @@
 import RoundItem from "./RoundItem.vue";
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import createStore from "../../store/index.js";
 
 export default {
   name: "round-table",
@@ -68,7 +69,7 @@ export default {
 
     function getRounds() {
       axios
-        .get("https://cryptohows.herokuapp.com/rounds/recent")
+        .get(createStore.state.backendUrl + "/rounds/recent?page=0")
         .then((response) => {
           allRounds.value = response.data;
         })
