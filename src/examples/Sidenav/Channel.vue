@@ -6,7 +6,7 @@
       </h6>
     </div>
 
-    <div class="channel-item ps-4 ms-2 mt-4">
+    <div class="channel-item ps-4 ms-2 mt-3">
       <a href="https://github.com/CryptoHows" target="_blank"
         ><i class="fa fa-github channel-icon"></i
       ></a>

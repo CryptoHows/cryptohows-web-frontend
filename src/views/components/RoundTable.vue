@@ -52,7 +52,14 @@
     </div>
   </div>
   <vsud-pagination color="success" class="roundPagination">
-    <vsud-pagination-item v-if="currentPageNumber != 1" :prev="true" />
+    <vsud-pagination-item
+      v-if="currentPageNumber != 1"
+      :prev="true"
+      @click="
+        getRoundsByPage(currentPageNumber - 1),
+          displayActivePage(currentPageNumber - 1)
+      "
+    />
     <vsud-pagination-item
       :label="1"
       :id="'page1'"
@@ -77,6 +84,10 @@
     <vsud-pagination-item
       v-if="currentPageNumber != totalPageRequired"
       :next="true"
+      @click="
+        getRoundsByPage(currentPageNumber + 1),
+          displayActivePage(currentPageNumber + 1)
+      "
     />
   </vsud-pagination>
 </template>
