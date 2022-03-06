@@ -20,11 +20,18 @@
 import Sidenav from "./examples/Sidenav";
 import Navbar from "@/examples/Navbars/Navbar.vue";
 import { mapMutations } from "vuex";
+import { channelTalk } from "./assets/js/channelTalk";
+import dotenv from "dotenv";
+dotenv.config();
+
 export default {
   name: "App",
   components: {
     Sidenav,
     Navbar,
+  },
+  setup() {
+    channelTalk(process.env.VUE_APP_CHANNEL_TALK_API_KEY);
   },
   methods: {
     ...mapMutations(["toggleConfigurator", "navbarMinimize"]),
