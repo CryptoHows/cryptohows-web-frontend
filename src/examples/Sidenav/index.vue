@@ -10,8 +10,11 @@
         id="iconSidenav"
       ></i>
       <a class="m-0 navbar-brand" href="/">
-        <img :src="logo" class="navbar-brand-img h-100" alt="main_logo" />
-        <span class="ms-3 font-weight-bold">CryptoHows</span>
+        <img
+          :src="logo"
+          class="navbar-brand-img h-100 logoImage"
+          alt="main_logo"
+        />
       </a>
     </div>
     <hr class="mt-0 horizontal dark" />
@@ -22,7 +25,7 @@
 <script>
 import SidenavList from "./SidenavList.vue";
 import Channel from "./Channel.vue";
-import logo from "@/assets/img/logo-ch.png";
+import logo from "@/assets/img/logo.png";
 
 export default {
   name: "index",
@@ -38,3 +41,9 @@ export default {
   props: ["custom_class"],
 };
 </script>
+
+<style scoped>
+.logoImage {
+  max-height: 3.7em !important;
+}
+</style>
