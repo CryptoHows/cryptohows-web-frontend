@@ -1,7 +1,7 @@
 <template>
   <div class="card mb-4">
     <div class="card-header pb-0">
-      <h6>벤처 캐피탈</h6>
+      <h6>🏦 VC 별로 보기</h6>
     </div>
     <div class="card-body px-0 pt-1 pb-2">
       <div class="table-responsive p-0">
@@ -21,7 +21,7 @@
               <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
               >
-                웹페이지
+                포트폴리오
               </th>
               <th class="text-secondary opacity-7"></th>
             </tr>

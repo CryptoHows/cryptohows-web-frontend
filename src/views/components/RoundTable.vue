@@ -1,7 +1,7 @@
 <template>
   <div class="card mb-4">
     <div class="card-header pb-0">
-      <h6>투자 라운드</h6>
+      <h6>🔥 따끈따끈 투자 소식</h6>
     </div>
     <div class="card-body px-0 pt-1 pb-2">
       <div class="table-responsive p-0">
@@ -12,6 +12,11 @@
                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
               >
                 프로젝트
+              </th>
+              <th
+                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+              >
+                카테고리
               </th>
               <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
