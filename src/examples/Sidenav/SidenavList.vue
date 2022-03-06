@@ -12,7 +12,7 @@
         </h6>
       </li>
       <li class="nav-item">
-        <sidenav-collapse navText="투자 라운드" :to="{ name: 'Round' }">
+        <sidenav-collapse navText="최근 투자 소식" :to="{ name: 'Round' }">
           <template v-slot:icon>
             <icon name="foundation" />
           </template>

@@ -36,6 +36,7 @@ export function channelTalk(channelTalkKey) {
       window.addEventListener("load", l, false);
     }
   })();
+  // eslint-disable-next-line no-undef
   ChannelIO("boot", {
     pluginKey: channelTalkKey,
   });
