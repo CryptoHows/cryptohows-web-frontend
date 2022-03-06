@@ -18,13 +18,13 @@
           </template>
         </sidenav-collapse>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <sidenav-collapse navText="프로젝트" :to="{ name: 'Projects' }">
           <template v-slot:icon>
             <icon name="spaceship" />
           </template>
         </sidenav-collapse>
-      </li>
+      </li> -->
       <li class="nav-item">
         <sidenav-collapse
           navText="벤처 캐피탈"
