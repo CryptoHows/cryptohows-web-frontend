@@ -21,7 +21,7 @@
               <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
               >
-                웹페이지
+                포트폴리오
               </th>
               <th class="text-secondary opacity-7"></th>
             </tr>

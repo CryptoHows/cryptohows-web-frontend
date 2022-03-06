@@ -12,9 +12,15 @@
           />
         </div>
         <div class="d-flex flex-column justify-content-center">
-          <h6 class="mb-0 text-sm">{{ projectName }}</h6>
+          <h6 class="mb-1 text-sm">{{ projectName }}</h6>
+          <p class="text-xs text-secondary mb-0">
+            {{ projectAbout }}
+          </p>
         </div>
       </div>
+    </td>
+    <td class="text-xs font-weight-bold mb-0">
+      <span class="text-xs font-weight-bold">{{ projectCategory }}</span>
     </td>
     <td class="text-xs font-weight-bold mb-0">
       <span class="text-xs font-weight-bold">{{ announcedDate }}</span>
@@ -63,13 +69,24 @@ export default {
   data() {
     return {
       projectName: this.round.project.name,
+      projectAbout: this.shorten(this.round.project.about),
       projectLogo: this.round.project.logo,
+      projectCategory: this.round.project.category,
       announcedDate: this.round.announcedDate,
       moneyRaised: this.round.moneyRaised,
       newsArticle: this.round.newsArticle,
       fundingStage: this.round.fundingStage,
       participants: this.round.participants,
     };
+  },
+  methods: {
+    shorten(text) {
+      let textMaxLength = 60;
+      if (text.length > textMaxLength) {
+        return text.substring(0, textMaxLength) + "...";
+      }
+      return text;
+    },
   },
 };
 </script>
