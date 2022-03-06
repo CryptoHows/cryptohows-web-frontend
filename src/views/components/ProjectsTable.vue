@@ -41,13 +41,44 @@
       </div>
     </div>
   </div>
-  <vsud-pagination color="success">
+  <vsud-pagination color="success" class="projectPagination">
     <vsud-pagination-item
-      v-for="pageNumber in totalPageRequired"
+      v-if="currentPageNumber != 1"
+      :prev="true"
+      @click="
+        getProjectsByPage(currentPageNumber - 1),
+          displayActivePage(currentPageNumber - 1)
+      "
+    />
+    <vsud-pagination-item
+      :label="1"
+      :id="'page1'"
+      @click="getProjectsByPage(1), displayActivePage(1)"
+    />
+    <p v-if="pageMode != 'frontPagination'">...</p>
+    <vsud-pagination-item
+      v-for="pageNumber in pageToDraw"
       :key="pageNumber"
       :label="pageNumber"
       :id="'page' + pageNumber"
       @click="getProjectsByPage(pageNumber), displayActivePage(pageNumber)"
+    />
+    <p v-if="pageMode != 'backPagination'">...</p>
+    <vsud-pagination-item
+      :label="totalPageRequired"
+      :id="'page' + totalPageRequired"
+      @click="
+        getProjectsByPage(totalPageRequired),
+          displayActivePage(totalPageRequired)
+      "
+    />
+    <vsud-pagination-item
+      v-if="currentPageNumber != totalPageRequired"
+      :next="true"
+      @click="
+        getProjectsByPage(currentPageNumber + 1),
+          displayActivePage(currentPageNumber + 1)
+      "
     />
   </vsud-pagination>
 </template>
@@ -72,7 +103,9 @@ export default {
     var currentPageNumber = ref(1);
     var totalProjectCount = 0;
     var totalPageRequired = ref(1);
-    var projectPerPage = 10;
+    var projectPerPage = 9;
+    var pageMode = ref("frontPagination");
+    var pageToDraw = ref([2, 3, 4]);
 
     function getProjectsByPage(pageNumber) {
       axios
@@ -118,6 +151,25 @@ export default {
       var pageToggle = document.getElementById("page" + String(pageNumber));
       pageToggle.classList.add("active");
       currentPageNumber.value = pageNumber;
+
+      if (pageNumber == 1 || pageNumber == 2 || pageNumber == 3) {
+        pageMode.value = "frontPagination";
+        pageToDraw.value = [2, 3, 4];
+      } else if (
+        pageNumber == totalPageRequired.value ||
+        pageNumber == totalPageRequired.value - 1 ||
+        pageNumber == totalPageRequired.value - 2
+      ) {
+        pageMode.value = "backPagination";
+        pageToDraw.value = [
+          totalPageRequired.value - 3,
+          totalPageRequired.value - 2,
+          totalPageRequired.value - 1,
+        ];
+      } else {
+        pageMode.value = "middlePagination";
+        pageToDraw.value = [pageNumber - 1, pageNumber, pageNumber + 1];
+      }
     }
 
     onMounted(() => {
@@ -132,7 +184,20 @@ export default {
       displayActivePage,
       currentPageNumber,
       totalPageRequired,
+      pageMode,
+      pageToDraw,
     };
   },
 };
 </script>
+
+<style scoped>
+.projectPagination {
+  justify-content: center;
+}
+
+p {
+  margin-right: 8px;
+  margin-left: 5px;
+}
+</style>
