@@ -1,24 +1,10 @@
-# upstream
+## CryptoHows Web Frontend
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 구현할 기능 목록
+- [x] 대시보드 페이지
+    - [x] 최근 투자 리스트 뷰
+- [ ] 벤처캐피탈 페이지
+    - [x] 벤처캐피탈 별 리스트 뷰
+    - [ ] 벤처캐피탈 상세 페이지
+- [x] 프로젝트 페이지
+    - [x] 프로젝트 별 리스트 뷰

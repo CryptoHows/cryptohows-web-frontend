@@ -1,26 +1,60 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <sidenav
+    :custom_class="this.$store.state.mcolor"
+    :class="[this.$store.state.isTransparent, 'fixed-start']"
+    v-if="this.$store.state.showSidenav"
+  />
+  <main
+    class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
+  >
+    <navbar
+      :class="[navClasses]"
+      :textWhite="this.$store.state.isAbsolute ? 'text-white opacity-8' : ''"
+      :minNav="navbarMinimize"
+      v-if="this.$store.state.showNavbar"
+    />
+    <router-view />
+  </main>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Sidenav from "./examples/Sidenav";
+import Navbar from "@/examples/Navbars/Navbar.vue";
+import { mapMutations } from "vuex";
+import { channelTalk } from "./assets/js/channelTalk";
+import dotenv from "dotenv";
+dotenv.config();
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Sidenav,
+    Navbar,
+  },
+  setup() {
+    channelTalk(process.env.VUE_APP_CHANNEL_TALK_API_KEY);
+  },
+  methods: {
+    ...mapMutations(["toggleConfigurator", "navbarMinimize"]),
+  },
+  computed: {
+    navClasses() {
+      return {
+        "position-sticky blur shadow-blur mt-4 left-auto top-1 z-index-sticky": this
+          .$store.state.isNavFixed,
+        "position-absolute px-4 mx-0 w-100 z-index-2": this.$store.state
+          .isAbsolute,
+        "px-0 mx-4 mt-4": !this.$store.state.isAbsolute,
+      };
+    },
+  },
+  beforeMount() {
+    this.$store.state.isTransparent = "bg-transparent";
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.homepage-link > a:hover {
+  color: #82d616 !important;
 }
 </style>
