@@ -15,6 +15,9 @@ export default createStore({
     backendUrl: "https://api.cryptohows.xyz",
   },
   mutations: {
+    setBackendUrl(state, url) {
+      state.backendUrl = url;
+    },
     navbarMinimize(state) {
       const sidenav_show = document.querySelector(".g-sidenav-show");
       const sidenav = document.getElementById("sidenav-main");

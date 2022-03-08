@@ -49,6 +49,7 @@ export default {
   },
   beforeMount() {
     this.$store.state.isTransparent = "bg-transparent";
+    this.$store.commit("setBackendUrl", process.env.VUE_APP_BACKEND);
   },
 };
 </script>
